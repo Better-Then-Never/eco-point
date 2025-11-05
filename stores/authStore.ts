@@ -67,8 +67,8 @@ export const useFirebaseStore = defineStore('firebase', () => {
           achievements: [],
           rewards: [],
           currentMonthSessions: 0,
-          pointsBalance: 0,
-          pointsEarned: 0,
+          pointsBalance: 500,
+          pointsEarned: 500,
           totalSessions: 0,
           createdAt: serverTimestamp()
         };
@@ -140,8 +140,8 @@ export const useFirebaseStore = defineStore('firebase', () => {
         achievements: defaultAchievementId ? [doc(db, 'achievements', defaultAchievementId)] : [],
         rewards: [],
         currentMonthSessions: 0,
-        pointsBalance: 0,
-        pointsEarned: 0,
+        pointsBalance: 500,
+        pointsEarned: 500,
         totalSessions: 0,
         createdAt: serverTimestamp()
       };

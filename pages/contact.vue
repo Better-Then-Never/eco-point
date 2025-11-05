@@ -195,9 +195,9 @@ const errorMessage = ref('');
 
 const teamMembers = [
   {
-    name: 'Mikita Kutsenko',
+    name: 'Mikita Kutsenka',
     role: 'Creative Designer',
-    description: 'Documentation specialist creating detailed design systems and user guides',
+    description: 'Crafting beautiful and intuitive user experiences through innovative visual design',
     photo: '/team/mikita-kutsenko.jpg'
   },
   {
