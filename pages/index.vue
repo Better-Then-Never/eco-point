@@ -163,7 +163,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="relative container mx-auto px-4 sm:px-6 lg:px-8 py-20 mb-12 text-center overflow-hidden">
+    <section class="relative container mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center overflow-hidden">
       <!-- Background Gradient -->
       <div class="absolute inset-0 bg-gradient-to-br from-green-500/10 via-blue-500/10 to-purple-500/10 dark:from-green-500/20 dark:via-blue-500/20 dark:to-purple-500/20"/>
       
@@ -219,7 +219,7 @@
         </div>
       </div>
     </section>
-
+    <div class="h-16"/>
   </div>
 </template>
 
