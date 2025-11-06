@@ -21,7 +21,7 @@
             </h2>
           </div>
           
-          <form @submit.prevent="handleSubmit" class="space-y-6">
+          <form class="space-y-6" @submit.prevent="handleSubmit">
             <div v-if="submitStatus === 'success'" class="p-4 bg-green-100 dark:bg-green-900 border-2 border-green-500 rounded-lg">
               <p class="text-green-700 dark:text-green-200 font-medium">
                 ✓ {{ $t('contact.successMessage') }}
@@ -46,7 +46,7 @@
                 :disabled="isSubmitting"
                 required
                 class="w-full px-4 py-3 border-2 border-green-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              />
+              >
             </div>
 
             <div class="space-y-2">
@@ -61,7 +61,7 @@
                 :disabled="isSubmitting"
                 required
                 class="w-full px-4 py-3 border-2 border-green-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              />
+              >
             </div>
 
             <div class="space-y-2">
@@ -76,7 +76,7 @@
                 required
                 rows="6"
                 class="w-full px-4 py-3 border-2 border-green-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed"
-              ></textarea>
+              />
             </div>
 
             <button
@@ -100,7 +100,6 @@
               <div>
                 <h3 class="font-semibold text-gray-900 dark:text-white mb-1">{{ $t('contact.emailUs') }}</h3>
                 <p class="text-gray-600 dark:text-gray-300">betterthannever.business@gmail.com</p>
-                <p class="text-gray-600 dark:text-gray-300">betterthannever.support@gmail.com</p>
               </div>
             </div>
           </div>
@@ -156,7 +155,7 @@
                 :src="member.photo" 
                 :alt="member.name"
                 class="w-full h-full object-cover"
-              />
+              >
               <Users v-else :size="40" class="text-white" />
             </div>
             <h3 class="font-semibold text-lg text-gray-900 dark:text-white mb-1">{{ member.name }}</h3>
@@ -181,7 +180,7 @@
 import { ref } from 'vue';
 import { Mail, MessageSquare, Users, Send, MapPin, Phone } from 'lucide-vue-next';
 
-const { t } = useI18n();
+useI18n();
 
 const formData = ref({
   name: '',
@@ -238,7 +237,7 @@ const handleSubmit = async () => {
   errorMessage.value = '';
 
   try {
-    const response = await $fetch('/api/contact', {
+    await $fetch('/api/contact', {
       method: 'POST',
       body: formData.value
     });

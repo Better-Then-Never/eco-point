@@ -165,11 +165,11 @@
     <!-- CTA Section -->
     <section class="relative container mx-auto px-4 sm:px-6 lg:px-8 py-20 mb-12 text-center overflow-hidden">
       <!-- Background Gradient -->
-      <div class="absolute inset-0 bg-gradient-to-br from-green-500/10 via-blue-500/10 to-purple-500/10 dark:from-green-500/20 dark:via-blue-500/20 dark:to-purple-500/20"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-green-500/10 via-blue-500/10 to-purple-500/10 dark:from-green-500/20 dark:via-blue-500/20 dark:to-purple-500/20"/>
       
       <!-- Decorative Elements -->
-      <div class="absolute top-0 left-0 w-64 h-64 bg-green-400/10 dark:bg-green-400/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-      <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-400/10 dark:bg-blue-400/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+      <div class="absolute top-0 left-0 w-64 h-64 bg-green-400/10 dark:bg-green-400/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"/>
+      <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-400/10 dark:bg-blue-400/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"/>
       
       <div class="relative max-w-4xl mx-auto space-y-8">
         <!-- Icon -->
@@ -213,7 +213,7 @@
           >
             {{ $t('home.learnMore') }}
             <svg class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </NuxtLink>
         </div>
@@ -224,11 +224,6 @@
 </template>
 
 <script setup lang="ts">
-import useAuth from '~/composables/useAuth';
-
-const { user } = useAuth();
-const isLoggedIn = useAuth();
-
 import { 
   MapPin, 
   Award, 
@@ -242,6 +237,10 @@ import {
   TrendingUp,
   Smartphone 
 } from 'lucide-vue-next'
+
+import useAuth from '~/composables/useAuth';
+
+const { user } = useAuth();
 </script>
 
 <style scoped>

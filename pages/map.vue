@@ -1,28 +1,3 @@
-<script setup lang="ts">
-import { onMounted } from 'vue';
-import { MapPin } from 'lucide-vue-next';
-import LocationsMap from '~/components/LocationsMap.vue';
-
-const { t } = useI18n();
-
-const {
-  locations,
-  loading,
-  selectedFilter,
-  selectedLocation,
-  wasteTypes,
-  filteredLocations,
-  fetchLocations,
-  selectLocation,
-  getStatusColor,
-  getTypeColor
-} = useLocations();
-
-onMounted(() => {
-  fetchLocations();
-});
-</script>
-
 <template>
   <div class="min-h-screen bg-gradient-to-b from-white to-green-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -45,13 +20,13 @@ onMounted(() => {
           <button
             v-for="type in wasteTypes"
             :key="type"
-            @click="selectedFilter = type"
             :class="[
               'px-6 py-2.5 rounded-lg font-medium transition-all duration-200',
               selectedFilter === type
                 ? 'bg-gradient-to-r from-green-600 to-blue-600 text-white shadow-lg hover:from-green-700 hover:to-blue-700'
                 : 'border-2 border-green-600 text-green-600 dark:text-green-400 dark:border-green-500 hover:bg-green-50 dark:hover:bg-gray-800'
             ]"
+            @click="selectedFilter = type"
           >
             {{ $t(`map.${type.toLowerCase()}`) }}
           </button>
@@ -71,7 +46,7 @@ onMounted(() => {
             />
             <div v-else-if="loading" class="h-full flex items-center justify-center">
               <div class="text-center z-10">
-                <div class="animate-spin rounded-full h-16 w-16 border-b-4 border-green-600 mx-auto mb-4"></div>
+                <div class="animate-spin rounded-full h-16 w-16 border-b-4 border-green-600 mx-auto mb-4"/>
                 <p class="text-gray-600 dark:text-gray-300 font-medium">{{ $t('map.loading') }}</p>
               </div>
             </div>
@@ -99,7 +74,7 @@ onMounted(() => {
         </div>
 
         <div v-if="loading" class="text-center py-12">
-          <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto mb-4"></div>
+          <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto mb-4"/>
           <p class="text-gray-500 dark:text-gray-400">{{ $t('map.loading') }}</p>
         </div>
 
@@ -107,8 +82,8 @@ onMounted(() => {
           <div
             v-for="point in filteredLocations"
             :key="point.id"
-            @click="selectLocation(point)"
             class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-green-300 dark:hover:border-green-600 overflow-hidden group cursor-pointer"
+            @click="selectLocation(point)"
           >
             <div class="p-6">
               <div class="flex items-start justify-between mb-4">
@@ -121,7 +96,7 @@ onMounted(() => {
                     <p class="text-sm text-gray-500 dark:text-gray-400">0.5 km {{ $t('map.away') }}</p>
                   </div>
                 </div>
-                <div :class="['w-3 h-3 rounded-full', getStatusColor()]"></div>
+                <div :class="['w-3 h-3 rounded-full', getStatusColor()]"/>
               </div>
 
               <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">{{ point.address }}</p>
@@ -158,3 +133,27 @@ onMounted(() => {
 
   </div>
 </template>
+<script setup lang="ts">
+import { onMounted } from 'vue';
+import { MapPin } from 'lucide-vue-next';
+import LocationsMap from '~/components/LocationsMap.vue';
+
+useI18n();
+
+const {
+  locations,
+  loading,
+  selectedFilter,
+  selectedLocation,
+  wasteTypes,
+  filteredLocations,
+  fetchLocations,
+  selectLocation,
+  getStatusColor,
+  getTypeColor
+} = useLocations();
+
+onMounted(() => {
+  fetchLocations();
+});
+</script>

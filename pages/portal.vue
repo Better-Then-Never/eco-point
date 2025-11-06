@@ -156,5 +156,6 @@
 <script setup lang="ts">
 import { Users, Building2, BarChart3, TrendingDown, TrendingUp, Gift, Leaf } from 'lucide-vue-next';
 
-const { t } = useI18n();
+useI18n();
+
 </script>

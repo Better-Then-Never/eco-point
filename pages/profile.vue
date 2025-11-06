@@ -3,7 +3,7 @@
     <!-- Loading State -->
     <div v-if="statisticsStore.loading" class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="flex flex-col items-center justify-center min-h-[50vh]">
-        <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-green-600 dark:border-green-400"></div>
+        <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-green-600 dark:border-green-400"/>
         <p class="mt-4 text-gray-600 dark:text-gray-400">{{ $t('profile.loading') || 'Loading...' }}</p>
       </div>
     </div>
@@ -196,7 +196,8 @@
                 ]"
               >
                 <div class="flex items-center gap-3">
-                  <div :class="[
+                  <div 
+                  :class="[
                     'flex items-center justify-center w-8 h-8 rounded-full font-bold text-sm',
                     index === 0 ? 'bg-yellow-400 text-yellow-900' : 
                     index === 1 ? 'bg-gray-300 text-gray-700' :
@@ -223,13 +224,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { Trophy, TrendingUp, Recycle, Leaf, Calendar, Users, Activity, Coins, Wallet, Gift, Award } from 'lucide-vue-next';
+import { onMounted } from 'vue';
+import { TrendingUp, Leaf, Calendar, Users, Activity, Coins, Wallet, Gift, Award } from 'lucide-vue-next';
 import ProgressBar from '~/components/ProgressBar.vue';
 import { useStatisticsStore } from '~/stores/statisticsStore';
 import useAuth from '~/composables/useAuth';
 
-const { t } = useI18n();
+useI18n();
 const statisticsStore = useStatisticsStore();
 const { user } = useAuth();
 
