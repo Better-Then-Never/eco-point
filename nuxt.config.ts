@@ -3,6 +3,14 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   ssr: false,
   devtools: { enabled: true },
+  
+  nitro: {
+    output: {
+      dir: 'dist',
+      publicDir: 'dist'
+    }
+  },
+  
   modules: [
     '@nuxt/icon', 
     '@nuxt/eslint', 

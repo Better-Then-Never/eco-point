@@ -4,7 +4,6 @@
 .nuxt
 .nitro
 .cache
-dist
 
 # Node dependencies
 node_modules
@@ -23,8 +22,8 @@ logs
 .env.*
 !.env.example
 
-node_modules/
-.nuxt/
-dist/
-
-package-lock.json
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
